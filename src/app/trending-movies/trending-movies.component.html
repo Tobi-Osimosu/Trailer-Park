@@ -1,0 +1,24 @@
+<section id="trending-movies">
+    <div class="container">
+        <h3 class="header">Trending Movies</h3>
+        <!-- <div class="" *ngIf="!trendingMovies"> -->
+        <div class="swiper-container" [swiper]="config">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" *ngFor="let trendingMovie of trendingMovies; let i = index">
+                    <div class="poster-container">
+                        <img src="{{ trendingMovie.Poster }}" alt="Poster Image" class="poster-img">
+                    </div>
+                    <h5 class="poster-title">{{ trendingMovie.Title }}</h5>
+                </div>
+            </div>
+
+            <button class="prev slide-btn mr-3" (click)="slidePrev()">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            <button class="next slide-btn" (click)="slideNext()">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </div>
+        <!-- </div> -->
+    </div>
+</section>

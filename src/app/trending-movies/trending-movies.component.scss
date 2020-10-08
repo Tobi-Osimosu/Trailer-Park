@@ -1,0 +1,54 @@
+@import "~swiper/swiper-bundle.min.css";
+
+#trending-movies {
+  .swiper-container {
+    position: relative;
+  }
+
+  .swiper-slide {
+    background: #282631 !important;
+    height: 500px !important;
+  }
+
+  .slide-btn {
+    position: absolute;
+    top: 45%;
+    border: 0px solid #838287bf;
+    border-radius: 50%;
+    background: #838287bf;
+    height: 35px;
+    width: 35px;
+    padding: 5px;
+    color: #ffffff;
+    z-index: 10;
+  }
+
+  .slide-btn.prev {
+    left: 0;
+  }
+
+  .slide-btn.next {
+    right: 0;
+  }
+
+  button {
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .poster-container {
+    display: flex;
+    justify-content: center;
+    background-color: #483970;
+    width: 100%;
+    height: 70%;
+  }
+
+  .poster-img {
+    width: auto;
+    height: 100%;
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "Total_results": "374",
+  "movie_results": [
+    {
+      "imdb_id": "tt12876132",
+      "title": "Deathstroke: Knights & Dragons - The Movie",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt7363104",
+      "title": "Khuda Haafiz",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt5617312",
+      "title": "The Bay of Silence",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt4255196",
+      "title": "Before the Fire",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt7550000",
+      "title": "Project Power",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt8675288",
+      "title": "Fearless",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt12759408",
+      "title": "Octonauts and the Caves of Sac Actun",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt11905962",
+      "title": "Sputnik",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt10350626",
+      "title": "Gunjan Saxena: The Kargil Girl",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt11695654",
+      "title": "Uncle Peckerhead",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt12416066",
+      "title": "Robot Riot",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt12198504",
+      "title": "Monstrous",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt4566758",
+      "title": "Mulan",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt5715066",
+      "title": "Mortal",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt9812258",
+      "title": "G-Loc",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt10556130",
+      "title": "Berlin, Berlin",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt9207700",
+      "title": "Made in Italy",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt10887902",
+      "title": "I Used to Go Here",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt7424290",
+      "title": "Max Reload and the Nether Blasters",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt8461224",
+      "title": "The Tax Collector",
+      "year": "2020"
+    }
+  ],
+  "results": 20,
+  "status": "OK",
+  "status_message": "Query was successful"
+}
