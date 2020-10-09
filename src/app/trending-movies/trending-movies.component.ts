@@ -1,3 +1,4 @@
+import { Movie } from './../movie.model';
 import { DataService } from './../services/data.service';
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
@@ -12,6 +13,7 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   config: SwiperConfigInterface;
   trendingMovies = [];
   imdb_ids = [];
+  selected_movie: Movie;
 
   constructor(
     private elementRef: ElementRef,
@@ -36,6 +38,8 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
           });
       });
 
+      this.manageSlide();
+
       console.log(this.trendingMovies);
     });
 
@@ -43,7 +47,7 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
     this.config = {
       direction: 'horizontal',
       loop: true,
-      slidesPerView: 4,
+      // slidesPerView: 4,
       spaceBetween: 20,
       keyboard: true,
       allowSlideNext: true,
@@ -70,5 +74,19 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
       '.swiper-container'
     ).swiper;
     mySwiper.slideNext();
+  }
+
+  movie(index) {
+    this.selected_movie = this.trendingMovies[index];
+  }
+
+  manageSlide() {
+    if (matchMedia('(max-width: 767.98px)').matches) {
+      this.config.slidesPerView = 1;
+    } else if (matchMedia('(max-width: 991.98px)').matches) {
+      this.config.slidesPerView = 2;
+    } else if (matchMedia('(min-width: 992px)').matches) {
+      this.config.slidesPerView = 4;
+    }
   }
 }

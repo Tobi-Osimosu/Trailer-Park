@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TrendingMoviesComponent } from './trending-movies/trending-movies.component';
 import { UpcomingMoviesComponent } from './upcoming-movies/upcoming-movies.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,13 @@ import { UpcomingMoviesComponent } from './upcoming-movies/upcoming-movies.compo
     TrendingMoviesComponent,
     UpcomingMoviesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SwiperModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SwiperModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
