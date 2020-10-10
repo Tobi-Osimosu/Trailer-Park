@@ -3,6 +3,7 @@ import { DataService } from './../services/data.service';
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { Swiper } from 'swiper';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-trending-movies',
@@ -12,36 +13,22 @@ import { Swiper } from 'swiper';
 export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   config: SwiperConfigInterface;
   trendingMovies = [];
-  imdb_ids = [];
+  trendingMoviess: Observable<any>;
   selected_movie: Movie;
 
   constructor(
     private elementRef: ElementRef,
     private dataService: DataService
-  ) {}
+  ) {
+    // this.dataService.fetchTrendingMovies().subscribe((response) => {
+    //   console.log(response);
+    //   this.trendingMovies = response;
+    //   this.manageSlide();
+    // });
 
-  ngOnInit() {
-    this.dataService.fetchTrendingMoviesIMDB_ID().subscribe((response) => {
-      let data = response;
-      data.forEach((el) => {
-        this.imdb_ids.push(el.imdb_id);
-      });
+    this.trendingMoviess = this.dataService.fetchTrendingMovies();
 
-      console.log(this.imdb_ids);
-
-      this.imdb_ids.forEach((id) => {
-        this.dataService
-          .fetchTrendingMoviesDetails(id)
-          .subscribe((response) => {
-            let trending_movies = response;
-            this.trendingMovies.push(trending_movies);
-          });
-      });
-
-      this.manageSlide();
-
-      console.log(this.trendingMovies);
-    });
+    // console.log(this.trendingMoviess);
 
     // let mySwiper = new Swiper('.swiper-container', {
     this.config = {
@@ -59,6 +46,8 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
       followFinger: true,
     };
   }
+
+  ngOnInit() {}
 
   ngAfterViewInit() {}
 

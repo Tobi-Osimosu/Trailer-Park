@@ -7,16 +7,24 @@ import { map } from 'rxjs/operators';
 })
 export class DataService {
   trendingMovies = [];
+  imdb_ids = [];
   data;
 
   constructor(private http: HttpClient) {}
 
-  fetchTrendingMoviesIMDB_ID() {
+  fetchTrendingMovies() {
     return this.http.get(`/assets/data.json`).pipe(
       map((response) => {
         this.data = response;
         this.data.movie_results.forEach((movieResults) => {
-          this.trendingMovies.push(movieResults);
+          this.imdb_ids.push(movieResults.imdb_id);
+        });
+
+        this.imdb_ids.forEach((id) => {
+          this.fetchTrendingMoviesDetails(id).subscribe((response) => {
+            let trending_movies = response;
+            this.trendingMovies.push(trending_movies);
+          });
         });
         return this.trendingMovies;
       })
@@ -24,6 +32,8 @@ export class DataService {
   }
 
   fetchTrendingMoviesDetails(imdb_id) {
-    return this.http.get(`http://www.omdbapi.com/?i=${imdb_id}&apikey=7fcde2d`);
+    return this.http.get(
+      `https://www.omdbapi.com/?i=${imdb_id}&apikey=7fcde2d`
+    );
   }
 }
