@@ -61,7 +61,7 @@ export class UpcomingMoviesComponent implements OnInit {
   }
 
   movie(index) {
-    this.selected_movie = this.dataService.upcomingMovies[index];
+    this.selected_movie = this.upcomingMovies[index];
   }
 
   manageSlide() {

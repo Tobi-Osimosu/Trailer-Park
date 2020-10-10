@@ -61,7 +61,7 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   movie(index) {
-    this.selected_movie = this.dataService.trendingMovies[index];
+    this.selected_movie = this.trendingMovies[index];
   }
 
   manageSlide() {
