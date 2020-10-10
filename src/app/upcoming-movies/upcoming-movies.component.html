@@ -1,1 +1,71 @@
-<p>upcoming-movies works!</p>
+<section id="upcoming-movies" (window:resize)="manageSlide()">
+    <div class="container">
+        <h3 class="header">Upcoming Movies</h3>
+        <!-- <div class="" *ngIf="!upcomingMovies"> -->
+        <div class="swiper-container" [swiper]="config">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" *ngFor="let upcomingMovie of upcomingMovies | async; let i = index">
+                    <div class="poster-container">
+                        <img *ngIf="upcomingMovie.Poster === 'N/A'"
+                            src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fb3ef66312333.5691dd2253378.jpg"
+                            alt="Poster Not Found" class="poster-img">
+                        <img *ngIf="upcomingMovie.Poster !== 'N/A'" src="{{ upcomingMovie.Poster }}" alt="Poster Image"
+                            class="poster-img">
+                    </div>
+                    <p class="poster-title">{{ upcomingMovie.Title }} ({{ upcomingMovie.Year }})</p>
+                    <div class="poster-btn-container">
+                        <button class="poster-btn" data-toggle="modal" data-target="#upcomingMovieModal"
+                            (click)="movie(i)"><i class="material-icons mr-1">amp_stories</i>View</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="prev slide-btn mr-3" (click)="slidePrev()">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            <button class="next slide-btn" (click)="slideNext()">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </div>
+        <!-- </div> -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="upcomingMovieModal" tabindex="-1" role="dialog"
+            aria-labelledby="upcomingMovieModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
+                    <div class="modal-body" *ngIf="selected_movie">
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <img *ngIf="selected_movie.Poster === 'N/A'"
+                                    src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fb3ef66312333.5691dd2253378.jpg"
+                                    alt="Poster Not Found" class="poster-img">
+                                <img *ngIf="selected_movie.Poster !== 'N/A'" src="{{ selected_movie.Poster }}"
+                                    alt="Poster Image" class="poster-img">
+                            </div>
+                            <div class="col-12 col-lg-6 p-5">
+                                <p class="modal-title">{{ selected_movie.Title }}</p>
+                                <p class="modal-text1">{{ selected_movie.Year }}, {{ selected_movie.Director}}</p>
+                                <p class="modal-text2">
+                                    <span class="runtime mr-2">{{ selected_movie.Runtime }}</span>
+                                    {{ selected_movie.Genre}}
+                                </p>
+                                <p class="modal-desc">{{ selected_movie.Plot }}</p>
+
+                                <button class="modal-btn">
+                                    <i class="material-icons mr-2">play_arrow</i>
+                                    WATCH TRAILER
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

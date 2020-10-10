@@ -41,6 +41,9 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
       },
       followFinger: true,
     };
+
+    // this.manageSlide();
+
   }
 
   ngOnInit() {}
@@ -49,14 +52,14 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
 
   slidePrev() {
     let mySwiper = this.elementRef.nativeElement.querySelector(
-      '.swiper-container'
+      '#trending-movies .swiper-container'
     ).swiper;
     mySwiper.slidePrev();
   }
 
   slideNext() {
     let mySwiper = this.elementRef.nativeElement.querySelector(
-      '.swiper-container'
+      '#trending-movies .swiper-container'
     ).swiper;
     mySwiper.slideNext();
   }

@@ -1,0 +1,108 @@
+{
+  "Total_results": "239",
+  "movie_results": [
+    {
+      "imdb_id": "tt11427380",
+      "title": "Love, Be Loved, Leave, Be Left",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt11162826",
+      "title": "Naked Animals",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt11622272",
+      "title": "Spring Uje spring",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt9753002",
+      "title": "Mi gran despedida",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt2317113",
+      "title": "St. Sebastian",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt10820264",
+      "title": "Two Eyes",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt10613518",
+      "title": "La piazza della mia città - Bologna e Lo Stato Sociale",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt10687740",
+      "title": "Princezna zakletá v čase",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt11148740",
+      "title": "Town of Glory",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt5194252",
+      "title": "The Bad Dad",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt8333418",
+      "title": "The Last Laugh",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt11815960",
+      "title": "The Superdeep",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt11354164",
+      "title": "老後の資金がありません",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt10431332",
+      "title": "Legend Quest: The Origin",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt11697690",
+      "title": "The Woman Who Ran",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt10648198",
+      "title": "Dime Cuándo Tú",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt8652818",
+      "title": "Violet Evergarden: The Movie",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt9038680",
+      "title": "Twisting the Aces",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt11772476",
+      "title": "Spice Boyz",
+      "year": "2020"
+    },
+    {
+      "imdb_id": "tt11576374",
+      "title": "Hello again - ein Tag für immer",
+      "year": "2020"
+    }
+  ],
+  "results": 20,
+  "status": "OK",
+  "status_message": "Query was successful"
+}

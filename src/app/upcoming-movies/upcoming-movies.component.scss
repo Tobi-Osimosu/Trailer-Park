@@ -1,0 +1,158 @@
+@import "~swiper/swiper-bundle.min.css";
+
+#upcoming-movies {
+  .swiper-container {
+    position: relative;
+  }
+
+  .swiper-slide {
+    position: relative;
+    background: #282631 !important;
+    height: 500px;
+    border-bottom: 5px solid #483970;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: #483970;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      &::after {
+        top: 0;
+        opacity: 0.8;
+      }
+
+      .poster-btn {
+        opacity: 1;
+      }
+    }
+  }
+
+  .slide-btn {
+    position: absolute;
+    top: 45%;
+    border: 0px solid #838287bf;
+    border-radius: 50%;
+    background: #838287bf;
+    height: 35px;
+    width: 35px;
+    padding: 5px;
+    color: #ffffff;
+    z-index: 10;
+  }
+
+  .slide-btn.prev {
+    left: 0;
+  }
+
+  .slide-btn.next {
+    right: 0;
+  }
+
+  button {
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .poster-container {
+    display: flex;
+    justify-content: center;
+    background-color: #483970;
+    width: 100%;
+    height: 80%;
+  }
+
+  .poster-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .poster-title {
+    margin: 0 !important;
+    text-transform: uppercase;
+    padding: 15px;
+  }
+
+  .poster-btn-container {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .poster-btn {
+    display: flex;
+    align-items: center;
+    background: #483970;
+    color: #ffffff;
+    border: 0px solid #483970;
+    border-radius: 5px;
+    padding: 10px 15px;
+    opacity: 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.3s ease-in-out;
+    z-index: 5;
+  }
+
+  .modal-title {
+    text-transform: uppercase;
+    font-size: 32px !important;
+  }
+
+  .modal-text1 {
+    color: #8a70d0;
+    font-size: 20px;
+  }
+
+  .modal-text2 {
+    font-size: 20px;
+
+    .runtime {
+      border: 0.5px solid #ffffff;
+      border-radius: 5px;
+      padding: 5px;
+    }
+  }
+
+  .modal-desc {
+    font-size: 18px;
+  }
+
+  .modal-btn {
+    display: flex;
+    align-items: center;
+    background: #483970;
+    color: #ffffff;
+    border: 2px solid #483970;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 24px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.3s ease-in-out;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: transparent;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .swiper-slide {
+    height: 600px !important;
+  }
+}

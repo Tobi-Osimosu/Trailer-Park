@@ -7,23 +7,26 @@ import { map } from 'rxjs/operators';
 })
 export class DataService {
   trendingMovies = [];
-  imdb_ids = [];
-  data;
+  upcomingMovies = [];
+  trendingMovies_imdb_ids = [];
+  upcomingMovies_imdb_ids = [];
+  trendingMoviesData;
+  upcomingMoviesData;
 
   constructor(private http: HttpClient) {}
 
   fetchTrendingMovies() {
-    return this.http.get(`/assets/data.json`).pipe(
+    return this.http.get(`/assets/trendingMovies.json`).pipe(
       map((response) => {
-        this.data = response;
-        this.data.movie_results.forEach((movieResults) => {
-          this.imdb_ids.push(movieResults.imdb_id);
+        this.trendingMoviesData = response;
+        this.trendingMoviesData.movie_results.forEach((movieResults) => {
+          this.trendingMovies_imdb_ids.push(movieResults.imdb_id);
         });
 
-        this.imdb_ids.forEach((id) => {
-          this.fetchTrendingMoviesDetails(id).subscribe((response) => {
-            let trending_movies = response;
-            this.trendingMovies.push(trending_movies);
+        this.trendingMovies_imdb_ids.forEach((id) => {
+          this.fetchMoviesDetails(id).subscribe((response) => {
+            // let trending_movies = response;
+            this.trendingMovies.push(response);
           });
         });
         return this.trendingMovies;
@@ -31,7 +34,26 @@ export class DataService {
     );
   }
 
-  fetchTrendingMoviesDetails(imdb_id) {
+  fetchUpcomingMovies() {
+    return this.http.get(`/assets/upcomingMovies.json`).pipe(
+      map((response) => {
+        this.upcomingMoviesData = response;
+        this.upcomingMoviesData.movie_results.forEach((movieResults) => {
+          this.upcomingMovies_imdb_ids.push(movieResults.imdb_id);
+        });
+
+        this.upcomingMovies_imdb_ids.forEach((id) => {
+          this.fetchMoviesDetails(id).subscribe((response) => {
+            // let upcoming_movies = response;
+            this.upcomingMovies.push(response);
+          });
+        });
+        return this.upcomingMovies;
+      })
+    );
+  }
+
+  fetchMoviesDetails(imdb_id) {
     return this.http.get(
       `https://www.omdbapi.com/?i=${imdb_id}&apikey=7fcde2d`
     );
