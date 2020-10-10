@@ -26,7 +26,7 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
     // let mySwiper = new Swiper('.swiper-container', {
     this.config = {
       direction: 'horizontal',
-      loop: true,
+      // loop: true,
       // slidesPerView: 4,
       spaceBetween: 20,
       keyboard: true,
@@ -61,6 +61,7 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   movie(index) {
+    this.selected_movie = null;
     this.selected_movie = this.trendingMovies[index];
   }
 
