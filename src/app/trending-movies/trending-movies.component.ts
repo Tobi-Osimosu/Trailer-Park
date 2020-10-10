@@ -12,23 +12,19 @@ import { Observable } from 'rxjs';
 })
 export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   config: SwiperConfigInterface;
-  trendingMovies = [];
-  trendingMoviess: Observable<any>;
+  trendingMovies: Observable<any>;
+  trending_movies;
   selected_movie: Movie;
 
   constructor(
     private elementRef: ElementRef,
     private dataService: DataService
   ) {
-    // this.dataService.fetchTrendingMovies().subscribe((response) => {
-    //   console.log(response);
-    //   this.trendingMovies = response;
-    //   this.manageSlide();
-    // });
+    this.trendingMovies = this.dataService.fetchTrendingMovies();
 
-    this.trendingMoviess = this.dataService.fetchTrendingMovies();
-
-    // console.log(this.trendingMoviess);
+    this.trendingMovies.subscribe((response) => {
+      this.trending_movies = response;
+    });
 
     // let mySwiper = new Swiper('.swiper-container', {
     this.config = {
@@ -66,7 +62,7 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   movie(index) {
-    this.selected_movie = this.trendingMovies[index];
+    this.selected_movie = this.trending_movies[index];
   }
 
   manageSlide() {

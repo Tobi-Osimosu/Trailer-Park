@@ -4,7 +4,7 @@
         <!-- <div class="" *ngIf="!trendingMovies"> -->
         <div class="swiper-container" [swiper]="config">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" *ngFor="let trendingMovie of trendingMoviess | async; let i = index">
+                <div class="swiper-slide" *ngFor="let trendingMovie of trendingMovies | async; let i = index">
                     <div class="poster-container">
                         <img src="{{ trendingMovie.Poster }}" alt="Poster Image" class="poster-img">
                     </div>
