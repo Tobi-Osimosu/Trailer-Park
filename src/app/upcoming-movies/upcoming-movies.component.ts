@@ -12,19 +12,16 @@ import { Observable } from 'rxjs';
 })
 export class UpcomingMoviesComponent implements OnInit {
   config: SwiperConfigInterface;
-  upcomingMovies: Observable<any>;
-  upcoming_movies;
+  upcomingMovies;
   selected_movie: Movie;
 
   constructor(
     private elementRef: ElementRef,
     private dataService: DataService
   ) {
-    this.upcomingMovies = this.dataService.fetchUpcomingMovies();
+    this.dataService.fetchUpcomingMovies().subscribe();
 
-    this.upcomingMovies.subscribe((response) => {
-      this.upcoming_movies = response;
-    });
+    this.upcomingMovies = this.dataService.upcomingMovies;
 
     // let mySwiper = new Swiper('.swiper-container', {
     this.config = {
@@ -64,7 +61,7 @@ export class UpcomingMoviesComponent implements OnInit {
   }
 
   movie(index) {
-    this.selected_movie = this.upcoming_movies[index];
+    this.selected_movie = this.dataService.upcomingMovies[index];
   }
 
   manageSlide() {

@@ -22,9 +22,10 @@ export class DataService {
         this.trendingMoviesData.movie_results.forEach((movieResults) => {
           this.trendingMovies_imdb_ids.push(movieResults.imdb_id);
         });
-
-        this.trendingMovies_imdb_ids.forEach((id) => {
-          this.fetchMoviesDetails(id).subscribe((response) => {
+      }),
+      map(() => {
+        this.trendingMovies_imdb_ids.forEach((imdb_id) => {
+          this.fetchMoviesDetails(imdb_id).subscribe((response) => {
             // let trending_movies = response;
             this.trendingMovies.push(response);
           });
@@ -41,9 +42,10 @@ export class DataService {
         this.upcomingMoviesData.movie_results.forEach((movieResults) => {
           this.upcomingMovies_imdb_ids.push(movieResults.imdb_id);
         });
-
-        this.upcomingMovies_imdb_ids.forEach((id) => {
-          this.fetchMoviesDetails(id).subscribe((response) => {
+      }),
+      map(() => {
+        this.upcomingMovies_imdb_ids.forEach((imdb_id) => {
+          this.fetchMoviesDetails(imdb_id).subscribe((response) => {
             // let upcoming_movies = response;
             this.upcomingMovies.push(response);
           });
