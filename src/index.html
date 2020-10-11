@@ -13,7 +13,16 @@
 </head>
 
 <body>
+  <div class="lds-hourglass"></div>
+
   <app-root></app-root>
+
+  <script>
+    window.addEventListener('load', () => {
+      document.querySelector(".lds-hourglass").style.display = "none";
+      document.body.style.overflow = "unset";
+    });
+  </script>
 </body>
 
 </html>

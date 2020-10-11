@@ -17,9 +17,17 @@ export class HeaderComponent implements OnInit {
 
   search() {
     this.searchResult = null;
-    this.dataService.search(this.form.value.title, this.form.value.year, this.form.value.type).subscribe((response) => {
-      this.searchResult = response;
-    });
+    if (this.form.value.title !== null) {
+      this.dataService
+        .search(
+          this.form.value.title,
+          this.form.value.year,
+          this.form.value.type
+        )
+        .subscribe((response) => {
+          this.searchResult = response;
+        });
+    }
     this.form.reset();
   }
 }
