@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   config: SwiperConfigInterface;
-  trendingMovies;
+  trendingMovies = null;
   selected_movie: Movie;
 
   constructor(
@@ -30,16 +30,12 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
       // slidesPerView: 4,
       spaceBetween: 20,
       keyboard: true,
-      allowSlideNext: true,
-      allowSlidePrev: true,
       navigation: true,
       autoplay: {
         delay: 5000,
       },
       followFinger: true,
     };
-
-    // this.manageSlide();
   }
 
   ngOnInit() {}

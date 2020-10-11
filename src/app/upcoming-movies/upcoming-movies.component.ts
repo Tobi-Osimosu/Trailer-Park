@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
   templateUrl: './upcoming-movies.component.html',
   styleUrls: ['./upcoming-movies.component.scss'],
 })
-export class UpcomingMoviesComponent implements OnInit {
+export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
   config: SwiperConfigInterface;
-  upcomingMovies;
+  upcomingMovies = null;
   selected_movie: Movie;
 
   constructor(
@@ -30,16 +30,12 @@ export class UpcomingMoviesComponent implements OnInit {
       // slidesPerView: 4,
       spaceBetween: 20,
       keyboard: true,
-      allowSlideNext: true,
-      allowSlidePrev: true,
       navigation: true,
       autoplay: {
         delay: 5000,
       },
       followFinger: true,
     };
-
-    // this.manageSlide();
   }
 
   ngOnInit() {}
