@@ -36,11 +36,17 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
       },
       followFinger: true,
     };
+
+    // this.manageSlide();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.manageSlide();
+  }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    // this.manageSlide();
+  }
 
   slidePrev() {
     let mySwiper = this.elementRef.nativeElement.querySelector(
@@ -62,6 +68,7 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   manageSlide() {
+    console.log('Trending Movies Reached');
     if (matchMedia('(max-width: 767.98px)').matches) {
       this.config.slidesPerView = 1;
     } else if (matchMedia('(max-width: 991.98px)').matches) {
