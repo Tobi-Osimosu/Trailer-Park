@@ -1,1 +1,68 @@
-<p>header works!</p>
+<header>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-3 d-flex justify-content-center mb-3 mb-lg-0">
+                <span class="logo d-flex"><i class="material-icons mr-2">live_tv</i>TrailerPark</span>
+            </div>
+            <form class="col-12 col-lg ml-auto" #searchForm="ngForm" autocomplete="off">
+                <div class="form-row d-flex justify-content-center">
+                    <div class="col-12 col-md-6">
+                        <input type="text" class="form-control" placeholder="Title" name="title" ngModel required>
+                    </div>
+                    <div class="col-3 col-md-2 pt-2 pt-md-0">
+                        <input type="text" class="form-control" placeholder="Year" name="year" ngModel>
+                    </div>
+                    <div class="col-6 col-md-3 pt-2 pt-md-0">
+                        <input type="text" class="form-control text-lowercase" placeholder="Movie/Series" name="type"
+                            ngModel>
+                    </div>
+                    <div class="col-3 col-md-1 pt-2 pt-md-0">
+                        <button class="btn header-btn" type="button" (click)="search()" data-toggle="modal"
+                            data-target="#searchModal">
+                            <i class="material-icons">search</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Modal -->
+            <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </div>
+                        <div class="modal-body" *ngIf="searchResult">
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <img *ngIf="searchResult.Poster === 'N/A' "
+                                        src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/9556d16312333.5691dd2255721.jpg"
+                                        alt="Poster Not Found" class="poster-img">
+                                    <img *ngIf="searchResult.Poster !== 'N/A'" src="{{ searchResult.Poster }}"
+                                        alt="Poster Image" class="poster-img">
+                                </div>
+                                <div class="col-12 col-lg-6 p-5">
+                                    <p class="modal-title">{{ searchResult.Title }}</p>
+                                    <p class="modal-text1">{{ searchResult.Year }}, {{ searchResult.Director}}</p>
+                                    <p class="modal-text2">
+                                        <span class="runtime mr-2">{{ searchResult.Runtime }}</span>
+                                        {{ searchResult.Genre}}
+                                    </p>
+                                    <p class="modal-desc">{{ searchResult.Plot }}</p>
+
+                                    <button class="modal-btn">
+                                        <i class="material-icons mr-2">play_arrow</i>
+                                        WATCH TRAILER
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

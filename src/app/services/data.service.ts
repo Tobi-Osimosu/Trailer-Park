@@ -60,4 +60,10 @@ export class DataService {
       `https://www.omdbapi.com/?i=${imdb_id}&apikey=7fcde2d`
     );
   }
+
+  search(title, year, type) {
+    return this.http.get(
+      `https://www.omdbapi.com/?t=${title}&y=${year}&type=${type}&apikey=7fcde2d`
+    );
+  }
 }
