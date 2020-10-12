@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./upcoming-movies.component.scss'],
 })
 export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
-  config: SwiperConfigInterface;
+  public config: SwiperConfigInterface = {};
   upcomingMovies = null;
   selected_movie: Movie;
 
@@ -23,20 +23,6 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
 
     this.upcomingMovies = this.dataService.upcomingMovies;
 
-    // let mySwiper = new Swiper('.swiper-container', {
-    this.config = {
-      direction: 'horizontal',
-      // loop: true,
-      // slidesPerView: 4,
-      spaceBetween: 20,
-      keyboard: true,
-      navigation: true,
-      autoplay: {
-        delay: 5000,
-      },
-      followFinger: true,
-    };
-
     // this.manageSlide();
   }
 
@@ -46,6 +32,29 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     // this.manageSlide();
+
+    // let mySwiper = new Swiper('.swiper-container', {
+    this.config = {
+      direction: 'horizontal',
+      // loop: true,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      keyboard: true,
+      navigation: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      followFinger: true,
+      breakpoints: {
+        992: {
+          slidesPerView: 4,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+      },
+    };
   }
 
   slidePrev() {
@@ -68,7 +77,7 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   manageSlide() {
-    console.log("Upcoming Movies Reached");
+    // console.log('Upcoming Movies Reached');
     if (matchMedia('(max-width: 767.98px)').matches) {
       this.config.slidesPerView = 1;
     } else if (matchMedia('(max-width: 991.98px)').matches) {

@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./trending-movies.component.scss'],
 })
 export class TrendingMoviesComponent implements OnInit, AfterViewInit {
-  config: SwiperConfigInterface;
+  public config: SwiperConfigInterface = {};
   trendingMovies = null;
   selected_movie: Movie;
 
@@ -23,20 +23,6 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
 
     this.trendingMovies = this.dataService.trendingMovies;
 
-    // let mySwiper = new Swiper('.swiper-container', {
-    this.config = {
-      direction: 'horizontal',
-      // loop: true,
-      // slidesPerView: 4,
-      spaceBetween: 20,
-      keyboard: true,
-      navigation: true,
-      autoplay: {
-        delay: 5000,
-      },
-      followFinger: true,
-    };
-
     // this.manageSlide();
   }
 
@@ -45,7 +31,28 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // this.manageSlide();
+    // let mySwiper = new Swiper('.swiper-container', {
+    this.config = {
+      direction: 'horizontal',
+      // loop: true,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      keyboard: true,
+      navigation: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      followFinger: true,
+      breakpoints: {
+        992: {
+          slidesPerView: 4,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+      },
+    };
   }
 
   slidePrev() {
@@ -68,7 +75,7 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   manageSlide() {
-    console.log('Trending Movies Reached');
+    // console.log('Trending Movies Reached');
     if (matchMedia('(max-width: 767.98px)').matches) {
       this.config.slidesPerView = 1;
     } else if (matchMedia('(max-width: 991.98px)').matches) {
