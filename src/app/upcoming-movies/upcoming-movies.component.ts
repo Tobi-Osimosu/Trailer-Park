@@ -88,6 +88,6 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
 
     setTimeout(() => {
       mySwiper.update();
-    }, 200);
+    }, 500);
   }
 }
