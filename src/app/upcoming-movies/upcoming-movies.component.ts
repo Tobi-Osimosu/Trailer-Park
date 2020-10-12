@@ -22,17 +22,11 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
     this.dataService.fetchUpcomingMovies().subscribe();
 
     this.upcomingMovies = this.dataService.upcomingMovies;
-
-    // this.manageSlide();
   }
 
-  ngOnInit() {
-    // this.manageSlide();
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
-    // this.manageSlide();
-
     // let mySwiper = new Swiper('.swiper-container', {
     this.config = {
       direction: 'horizontal',
@@ -76,14 +70,24 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
     this.selected_movie = this.upcomingMovies[index];
   }
 
-  manageSlide() {
-    // console.log('Upcoming Movies Reached');
-    if (matchMedia('(max-width: 767.98px)').matches) {
-      this.config.slidesPerView = 1;
-    } else if (matchMedia('(max-width: 991.98px)').matches) {
-      this.config.slidesPerView = 2;
-    } else if (matchMedia('(min-width: 992px)').matches) {
-      this.config.slidesPerView = 4;
-    }
+  // manageSlide() {
+  //   // console.log('Upcoming Movies Reached');
+  //   if (matchMedia('(max-width: 767.98px)').matches) {
+  //     this.config.slidesPerView = 1;
+  //   } else if (matchMedia('(max-width: 991.98px)').matches) {
+  //     this.config.slidesPerView = 2;
+  //   } else if (matchMedia('(min-width: 992px)').matches) {
+  //     this.config.slidesPerView = 4;
+  //   }
+  // }
+
+  reInitSwiper() {
+    let mySwiper = this.elementRef.nativeElement.querySelector(
+      '#upcoming-movies .swiper-container'
+    ).swiper;
+
+    setTimeout(() => {
+      mySwiper.update();
+    }, 200);
   }
 }

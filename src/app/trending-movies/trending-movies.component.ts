@@ -74,14 +74,24 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
     this.selected_movie = this.trendingMovies[index];
   }
 
-  manageSlide() {
-    // console.log('Trending Movies Reached');
-    if (matchMedia('(max-width: 767.98px)').matches) {
-      this.config.slidesPerView = 1;
-    } else if (matchMedia('(max-width: 991.98px)').matches) {
-      this.config.slidesPerView = 2;
-    } else if (matchMedia('(min-width: 992px)').matches) {
-      this.config.slidesPerView = 4;
-    }
+  // manageSlide() {
+  //   console.log('Trending Movies Reached');
+  //   if (matchMedia('(max-width: 767.98px)').matches) {
+  //     this.config.slidesPerView = 1;
+  //   } else if (matchMedia('(max-width: 991.98px)').matches) {
+  //     this.config.slidesPerView = 2;
+  //   } else if (matchMedia('(min-width: 992px)').matches) {
+  //     this.config.slidesPerView = 4;
+  //   }
+  // }
+
+  reInitSwiper() {
+    let mySwiper = this.elementRef.nativeElement.querySelector(
+      '#trending-movies .swiper-container'
+    ).swiper;
+
+    setTimeout(() => {
+      mySwiper.update();
+    }, 200);
   }
 }

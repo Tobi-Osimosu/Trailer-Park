@@ -1,5 +1,5 @@
 <div class="" *ngIf="upcomingMovies !== null">
-    <section id="upcoming-movies" (window:load)="manageSlide()">
+    <section id="upcoming-movies" (window:load)="reInitSwiper()">
         <div class="container">
             <h3 class="header">Upcoming Movies</h3>
             <div class="swiper-container" [swiper]="config">
