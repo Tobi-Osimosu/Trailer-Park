@@ -15,6 +15,11 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   trendingMovies = null;
   selected_movie: Movie;
 
+  public YT: any;
+  public video: any;
+  public player: any;
+  // public reframed: Boolean = false;
+
   constructor(
     private elementRef: ElementRef,
     private dataService: DataService
@@ -22,13 +27,9 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
     this.dataService.fetchTrendingMovies().subscribe();
 
     this.trendingMovies = this.dataService.trendingMovies;
-
-    // this.manageSlide();
   }
 
-  ngOnInit() {
-    // this.manageSlide();
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     // let mySwiper = new Swiper('.swiper-container', {
@@ -74,17 +75,6 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
     this.selected_movie = this.trendingMovies[index];
   }
 
-  // manageSlide() {
-  //   console.log('Trending Movies Reached');
-  //   if (matchMedia('(max-width: 767.98px)').matches) {
-  //     this.config.slidesPerView = 1;
-  //   } else if (matchMedia('(max-width: 991.98px)').matches) {
-  //     this.config.slidesPerView = 2;
-  //   } else if (matchMedia('(min-width: 992px)').matches) {
-  //     this.config.slidesPerView = 4;
-  //   }
-  // }
-
   reInitSwiper() {
     let mySwiper = this.elementRef.nativeElement.querySelector(
       '#trending-movies .swiper-container'
@@ -93,5 +83,59 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       mySwiper.update();
     }, 500);
+  }
+
+  playTrailer() {
+    console.log('play Trailer Function Reached');
+
+    this.video = 'hXN5SGUSpzw';
+    this.initYoutubePlayer();
+  }
+
+  initYoutubePlayer() {
+    var tag = document.createElement('script');
+
+    tag.src = 'https://www.youtube.com/iframe_api';
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    window['onYouTubeIframeAPIReady'] = () => this.startVideo();
+  }
+
+  startVideo() {
+    // this.reframed = false;
+    this.player = new window['YT'].Player('player', {
+      videoId: this.video,
+      playerVars: {
+        autoplay: 1,
+        modestbranding: 1,
+        controls: 1,
+        disablekb: 1,
+        rel: 0,
+        showinfo: 0,
+        fs: 0,
+        playsinline: 1,
+      },
+      events: {
+        onError: this.onPlayerError.bind(this),
+        onReady: this.onPlayerReady.bind(this),
+      },
+    });
+  }
+
+  onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  onPlayerError(event) {
+    switch (event.data) {
+      case 2:
+        console.log('' + this.video);
+        break;
+      case 100:
+        break;
+      case 101 || 150:
+        break;
+    }
   }
 }
