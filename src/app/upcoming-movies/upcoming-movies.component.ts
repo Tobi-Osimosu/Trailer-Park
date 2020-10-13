@@ -16,7 +16,7 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
   selected_movie: Movie;
 
   public YT: any;
-  public player: any;
+  public player2: any;
   public YTMovieTrailerID: string;
 
   constructor(
@@ -83,13 +83,14 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
       mySwiper.update();
     }, 500);
   }
+  
   playTrailer(movie_title) {
     let query: string = `${movie_title} Trailer`;
     this.dataService.fetchTrailerID(query).subscribe((res) => {
       this.YTMovieTrailerID = res;
 
       if (document.querySelector('#upcoming-movies iframe')) {
-        let YTUrl = `https://www.youtube.com/embed/${this.YTMovieTrailerID}?autoplay=1&modestbranding=1&controls=1&disablekb=1&rel=0&showinfo=0&fs=0&playsinline=1&enablejsapi=1&origin=http%3A%2F%2Flocalhost%3A4200&widgetid=1`;
+        let YTUrl = `https://www.youtube.com/embed/${this.YTMovieTrailerID}?autoplay=1&modestbranding=1&controls=1&disablekb=1&rel=0&showinfo=0&fs=0&playsinline=1&enablejsapi=1&widgetid=1`;
         document.querySelector('iframe').setAttribute('src', YTUrl);
       } else {
         this.initYoutubePlayer();
@@ -108,7 +109,7 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   startVideo() {
-    this.player = new window['YT'].Player('player2', {
+    this.player2 = new window['YT'].Player('player2', {
       // height: "460",
       // width: "100%",
       videoId: this.YTMovieTrailerID,
@@ -146,6 +147,6 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   onModalClose() {
-    this.player.stopVideo();
+    this.player2.stopVideo();
   }
 }

@@ -6,10 +6,10 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" *ngFor="let trendingMovie of trendingMovies; let i = index">
                         <div class="poster-container">
-                            <img *ngIf="trendingMovie.Poster === 'N/A' "
+                            <img loading="lazy" *ngIf="trendingMovie.Poster === 'N/A' "
                                 src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/9556d16312333.5691dd2255721.jpg"
                                 alt="Poster Not Found" class="poster-img">
-                            <img *ngIf="trendingMovie.Poster !== 'N/A'" src="{{ trendingMovie.Poster }}"
+                            <img loading="lazy" *ngIf="trendingMovie.Poster !== 'N/A'" src="{{ trendingMovie.Poster }}"
                                 alt="Poster Image" class="poster-img">
                         </div>
                         <p class="poster-title">{{ trendingMovie.Title }} ({{ trendingMovie.Year }})</p>
@@ -41,10 +41,10 @@
                         <div class="modal-body" *ngIf="selected_movie">
                             <div class="row">
                                 <div class="col-12 col-lg-6">
-                                    <img *ngIf="selected_movie.Poster === 'N/A' "
+                                    <img loading="lazy" *ngIf="selected_movie.Poster === 'N/A' "
                                         src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/9556d16312333.5691dd2255721.jpg"
                                         alt="Poster Not Found" class="poster-img">
-                                    <img *ngIf="selected_movie.Poster !== 'N/A'" src="{{ selected_movie.Poster }}"
+                                    <img loading="lazy" *ngIf="selected_movie.Poster !== 'N/A'" src="{{ selected_movie.Poster }}"
                                         alt="Poster Image" class="poster-img">
                                 </div>
                                 <div class="col-12 col-lg-6 p-5">
