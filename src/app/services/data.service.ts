@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Youtube } from '../youtube.model';
 
 @Injectable({
   providedIn: 'root',
@@ -64,6 +65,15 @@ export class DataService {
   search(title, year, type) {
     return this.http.get(
       `https://www.omdbapi.com/?t=${title}&y=${year}&type=${type}&apikey=7fcde2d`
+    );
+  }
+
+  fetchTrailerID(query) {
+    return this.http.get<Youtube>(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${query}&key=AIzaSyDxo3-dq7wg4YgdT-29bvkSt9coYd0uobE`
+    ).pipe(
+      map((result) => {
+        return result.items[0].id.videoId;
+      })
     );
   }
 }

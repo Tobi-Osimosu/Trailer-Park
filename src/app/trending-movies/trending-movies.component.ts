@@ -16,9 +16,9 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   selected_movie: Movie;
 
   public YT: any;
-  public video: any;
   public player: any;
   // public reframed: Boolean = false;
+  public YTMovieTrailerID: string;
 
   constructor(
     private elementRef: ElementRef,
@@ -85,14 +85,18 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
     }, 500);
   }
 
-  playTrailer() {
-    console.log('play Trailer Function Reached');
-
-    this.video = 'hXN5SGUSpzw';
-    this.initYoutubePlayer();
+  playTrailer(movie_title) {
+    console.log(`${movie_title} Trailer`);
+    let query: string = `${movie_title} Trailer`;
+    this.dataService.fetchTrailerID(query).subscribe((res) => {
+      console.log(res);
+      this.YTMovieTrailerID = res;
+      this.initYoutubePlayer();
+    });
   }
 
   initYoutubePlayer() {
+    console.log('initYoutubePlayer reached');
     var tag = document.createElement('script');
 
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -105,7 +109,7 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   startVideo() {
     // this.reframed = false;
     this.player = new window['YT'].Player('player', {
-      videoId: this.video,
+      videoId: this.YTMovieTrailerID,
       playerVars: {
         autoplay: 1,
         modestbranding: 1,
@@ -130,12 +134,26 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   onPlayerError(event) {
     switch (event.data) {
       case 2:
-        console.log('' + this.video);
+        console.log('' + this.YTMovieTrailerID);
         break;
       case 100:
         break;
       case 101 || 150:
         break;
     }
+  }
+
+  onModalClose() {
+    console.log('onModalClose Reached');
+    let element = document.querySelector('iframe');
+    element.parentNode.removeChild(element);
+
+    let p = document.getElementById('YTPlayer-container');
+    console.log(p);
+    let newYTPLayerDiv = document.createElement('div');
+    newYTPLayerDiv.setAttribute('id', 'player');
+    p.appendChild(newYTPLayerDiv);
+
+    this.player = null;
   }
 }
