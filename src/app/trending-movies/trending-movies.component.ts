@@ -4,6 +4,7 @@ import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { Swiper } from 'swiper';
 import { Observable } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-trending-movies',
@@ -17,7 +18,6 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
 
   public YT: any;
   public player: any;
-  // public reframed: Boolean = false;
   public YTMovieTrailerID: string;
 
   constructor(
@@ -86,17 +86,20 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   playTrailer(movie_title) {
-    console.log(`${movie_title} Trailer`);
     let query: string = `${movie_title} Trailer`;
     this.dataService.fetchTrailerID(query).subscribe((res) => {
-      console.log(res);
       this.YTMovieTrailerID = res;
-      this.initYoutubePlayer();
+
+      if (document.querySelector('#trending-movies iframe')) {
+        let YTUrl = `https://www.youtube.com/embed/${this.YTMovieTrailerID}?autoplay=1&modestbranding=1&controls=1&disablekb=1&rel=0&showinfo=0&fs=0&playsinline=1&enablejsapi=1&origin=http%3A%2F%2Flocalhost%3A4200&widgetid=1`;
+        document.querySelector('iframe').setAttribute('src', YTUrl);
+      } else {
+        this.initYoutubePlayer();
+      }
     });
   }
 
   initYoutubePlayer() {
-    console.log('initYoutubePlayer reached');
     var tag = document.createElement('script');
 
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -107,8 +110,9 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   startVideo() {
-    // this.reframed = false;
     this.player = new window['YT'].Player('player', {
+      // height: "460",
+      // width: "100%",
       videoId: this.YTMovieTrailerID,
       playerVars: {
         autoplay: 1,
@@ -144,16 +148,6 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   }
 
   onModalClose() {
-    console.log('onModalClose Reached');
-    let element = document.querySelector('iframe');
-    element.parentNode.removeChild(element);
-
-    let p = document.getElementById('YTPlayer-container');
-    console.log(p);
-    let newYTPLayerDiv = document.createElement('div');
-    newYTPLayerDiv.setAttribute('id', 'player');
-    p.appendChild(newYTPLayerDiv);
-
-    this.player = null;
+    this.player.stopVideo();
   }
 }

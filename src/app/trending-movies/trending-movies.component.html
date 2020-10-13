@@ -57,7 +57,7 @@
                                     <p class="modal-desc">{{ selected_movie.Plot }}</p>
 
                                     <button type="button" class="modal-btn" data-toggle="modal"
-                                        (click)="playTrailer(selected_movie.Title)" data-target="#trailerModal">
+                                        (click)="playTrailer(selected_movie.Title)" data-target="#trendingMovieTrailerModal">
                                         <i class="material-icons mr-2">play_arrow</i>
                                         WATCH TRAILER
                                     </button>
@@ -68,8 +68,8 @@
                 </div>
 
                 <!-- Trailer Modal -->
-                <div class="modal fade" id="trailerModal" tabindex="-1" role="dialog"
-                    aria-labelledby="trailerModalTitle" aria-hidden="true">
+                <div class="modal fade" id="trendingMovieTrailerModal" tabindex="-1" role="dialog"
+                    aria-labelledby="trendingMovieTrailerModalTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
