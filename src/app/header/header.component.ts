@@ -11,8 +11,8 @@ export class HeaderComponent implements OnInit {
   @ViewChild('searchForm', { static: false }) form: NgForm;
   searchResult;
 
-  public YT: any;
-  public player3: any;
+  // public YT: any;
+  // public player3: any;
   public YTMovieTrailerID: string;
 
   constructor(private dataService: DataService) {}
@@ -41,63 +41,66 @@ export class HeaderComponent implements OnInit {
       this.YTMovieTrailerID = res;
 
       if (document.querySelector('header iframe')) {
-        let YTUrl = `https://www.youtube.com/embed/${this.YTMovieTrailerID}?autoplay=1&modestbranding=1&controls=1&disablekb=1&rel=0&showinfo=0&fs=0&playsinline=1&enablejsapi=1&widgetid=1`;
+        let YTUrl = `https://www.youtube.com/embed/${this.YTMovieTrailerID}?autoplay=0&modestbranding=1&controls=1&disablekb=1&rel=0&showinfo=0&fs=0&playsinline=1&enablejsapi=1&widgetid=1`;
         document.querySelector('header iframe').setAttribute('src', YTUrl);
       } else {
-        this.initYoutubePlayer();
+        this.dataService.initYoutubePlayer(this.YTMovieTrailerID);
+        this.dataService.player3.videoId = this.YTMovieTrailerID;
       }
     });
   }
 
-  initYoutubePlayer() {
-    var tag = document.createElement('script');
+  // initYoutubePlayer() {
+  //   var tag = document.createElement('script');
 
-    tag.src = 'https://www.youtube.com/iframe_api';
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  //   tag.src = 'https://www.youtube.com/iframe_api';
+  //   var firstScriptTag = document.getElementsByTagName('script')[0];
+  //   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    window['onYouTubeIframeAPIReady'] = () => this.startVideo();
-  }
+  //   window['onYouTubeIframeAPIReady'] = () => this.startVideo();
+  // }
 
-  startVideo() {
-    this.player3 = new window['YT'].Player('player3', {
-      // height: "460",
-      // width: "100%",
-      videoId: this.YTMovieTrailerID,
-      playerVars: {
-        autoplay: 1,
-        modestbranding: 1,
-        controls: 1,
-        disablekb: 1,
-        rel: 0,
-        showinfo: 0,
-        fs: 0,
-        playsinline: 1,
-      },
-      events: {
-        onError: this.onPlayerError.bind(this),
-        onReady: this.onPlayerReady.bind(this),
-      },
-    });
-  }
+  // startVideo() {
+  //   this.player3 = new window['YT'].Player('player3', {
+  //     // height: "460",
+  //     // width: "100%",
+  //     videoId: this.YTMovieTrailerID,
+  //     playerVars: {
+  //       autoplay: 1,
+  //       modestbranding: 1,
+  //       controls: 1,
+  //       disablekb: 1,
+  //       rel: 0,
+  //       showinfo: 0,
+  //       fs: 0,
+  //       playsinline: 1,
+  //     },
+  //     events: {
+  //       onError: this.onPlayerError.bind(this),
+  //       onReady: this.onPlayerReady.bind(this),
+  //     },
+  //   });
+  // }
 
-  onPlayerReady(event) {
-    event.target.playVideo();
-  }
+  // onPlayerReady(event) {
+  //   event.target.playVideo();
+  // }
 
-  onPlayerError(event) {
-    switch (event.data) {
-      case 2:
-        console.log('' + this.YTMovieTrailerID);
-        break;
-      case 100:
-        break;
-      case 101 || 150:
-        break;
-    }
-  }
+  // onPlayerError(event) {
+  //   switch (event.data) {
+  //     case 2:
+  //       console.log('' + this.YTMovieTrailerID);
+  //       break;
+  //     case 100:
+  //       break;
+  //     case 101 || 150:
+  //       break;
+  //   }
+  // }
 
   onModalClose() {
-    this.player3.stopVideo();
+    this.dataService.player.stopVideo();
+    this.dataService.player2.stopVideo();
+    this.dataService.player3.stopVideo();
   }
 }

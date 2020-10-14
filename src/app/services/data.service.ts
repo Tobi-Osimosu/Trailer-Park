@@ -13,6 +13,9 @@ export class DataService {
   upcomingMovies_imdb_ids = [];
   trendingMoviesData;
   upcomingMoviesData;
+  player;
+  player2;
+  player3;
 
   constructor(private http: HttpClient) {}
 
@@ -76,4 +79,101 @@ export class DataService {
       })
     );
   }
+
+  initYoutubePlayer(YTMovieTrailerID) {
+    var tag = document.createElement('script');
+
+    tag.src = 'https://www.youtube.com/iframe_api';
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    window['onYouTubeIframeAPIReady'] = () => this.startVideo(YTMovieTrailerID);
+  }
+
+  startVideo(YTMovieTrailerID) {
+    this.player = new window['YT'].Player('player', {
+      // height: "460",
+      // width: "100%",
+      // videoId: YTMovieTrailerID,
+      playerVars: {
+        autoplay: 0,
+        modestbranding: 1,
+        controls: 1,
+        disablekb: 1,
+        rel: 0,
+        showinfo: 0,
+        fs: 0,
+        playsinline: 1,
+      },
+      events: {
+        // onError: this.onPlayerError.bind(this),
+        onReady: this.onPlayerReady.bind(this),
+      },
+    });
+
+    this.player2 = new window['YT'].Player('player2', {
+      // height: "460",
+      // width: "100%",
+      // videoId: YTMovieTrailerID,
+      playerVars: {
+        autoplay: 0,
+        modestbranding: 1,
+        controls: 1,
+        disablekb: 1,
+        rel: 0,
+        showinfo: 0,
+        fs: 0,
+        playsinline: 1,
+      },
+      events: {
+        // onError: this.onPlayerError.bind(this),
+        onReady: this.onPlayer2Ready.bind(this),
+      },
+    });
+
+    this.player3 = new window['YT'].Player('player3', {
+      // height: "460",
+      // width: "100%",
+      // videoId: YTMovieTrailerID,
+      playerVars: {
+        autoplay: 0,
+        modestbranding: 1,
+        controls: 1,
+        disablekb: 1,
+        rel: 0,
+        showinfo: 0,
+        fs: 0,
+        playsinline: 1,
+      },
+      events: {
+        // onError: this.onPlayerError.bind(this),
+        onReady: this.onPlayer3Ready.bind(this),
+      },
+    });
+  }
+
+  onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  onPlayer2Ready(event) {
+    event.target.playVideo();
+  }
+
+  onPlayer3Ready(event) {
+    event.target.playVideo();
+  }
+
+  // onPlayerError(event) {
+  //   switch (event.data) {
+  //     case 2:
+  //       console.log('' + this.YTMovieTrailerID);
+  //       break;
+  //     case 100:
+  //       break;
+  //     case 101 || 150:
+  //       break;
+  //   }
+  // }
+
 }
