@@ -92,7 +92,9 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
 
       if (document.querySelector('#trending-movies iframe')) {
         let YTUrl = `https://www.youtube.com/embed/${this.YTMovieTrailerID}?autoplay=1&modestbranding=1&controls=1&disablekb=1&rel=0&showinfo=0&fs=0&playsinline=1&enablejsapi=1&widgetid=1`;
-        document.querySelector('iframe').setAttribute('src', YTUrl);
+        document
+          .querySelector('#trending-movies iframe')
+          .setAttribute('src', YTUrl);
       } else {
         this.initYoutubePlayer();
       }

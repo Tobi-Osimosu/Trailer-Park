@@ -25,7 +25,7 @@
                 </div>
             </form>
 
-            <!-- Modal -->
+            <!-- Search Modal -->
             <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalTitle"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -53,7 +53,9 @@
                                     </p>
                                     <p class="modal-desc">{{ searchResult.Plot }}</p>
 
-                                    <button class="modal-btn">
+                                    <button class="modal-btn" class="modal-btn" data-toggle="modal"
+                                        (click)="playTrailer(searchResult.Title)"
+                                        data-target="#searchTrailerModal">
                                         <i class="material-icons mr-2">play_arrow</i>
                                         WATCH TRAILER
                                     </button>
@@ -62,6 +64,27 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Trailer Modal -->
+                <div class="modal fade" id="searchTrailerModal" tabindex="-1" role="dialog"
+                    aria-labelledby="searchTrailerModalTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    (click)="onModalClose()">
+                                    <i class="material-icons">close</i>
+                                </button>
+                            </div>
+                            <div id="YTPlayer-container"
+                                class="modal-body d-flex justify-content-center align-items-center"
+                                style="height: 568px; width: 100%;">
+                                <div id="player3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

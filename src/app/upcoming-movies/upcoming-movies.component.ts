@@ -83,7 +83,7 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
       mySwiper.update();
     }, 500);
   }
-  
+
   playTrailer(movie_title) {
     let query: string = `${movie_title} Trailer`;
     this.dataService.fetchTrailerID(query).subscribe((res) => {
@@ -91,7 +91,9 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
 
       if (document.querySelector('#upcoming-movies iframe')) {
         let YTUrl = `https://www.youtube.com/embed/${this.YTMovieTrailerID}?autoplay=1&modestbranding=1&controls=1&disablekb=1&rel=0&showinfo=0&fs=0&playsinline=1&enablejsapi=1&widgetid=1`;
-        document.querySelector('iframe').setAttribute('src', YTUrl);
+        document
+          .querySelector('#upcoming-movies iframe')
+          .setAttribute('src', YTUrl);
       } else {
         this.initYoutubePlayer();
       }
