@@ -3,8 +3,6 @@ import { DataService } from './../services/data.service';
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { Swiper } from 'swiper';
-import { Observable } from 'rxjs';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-trending-movies',
@@ -15,9 +13,6 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
   public config: SwiperConfigInterface = {};
   trendingMovies = null;
   selected_movie: Movie;
-
-  // public YT: any;
-  // public player: any;
   public YTMovieTrailerID: string;
 
   constructor(
@@ -82,7 +77,7 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
 
     setTimeout(() => {
       mySwiper.update();
-    }, 500);
+    }, 1000);
   }
 
   playTrailer(movie_title) {
@@ -97,7 +92,6 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
           .setAttribute('src', YTUrl);
       } else {
         this.dataService.initYoutubePlayer(this.YTMovieTrailerID);
-        this.dataService.player.videoId = this.YTMovieTrailerID;
       }
     });
   }
@@ -152,7 +146,5 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
 
   onModalClose() {
     this.dataService.player.stopVideo();
-    this.dataService.player2.stopVideo();
-    this.dataService.player3.stopVideo();
   }
 }

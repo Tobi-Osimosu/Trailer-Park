@@ -72,7 +72,7 @@ export class DataService {
   }
 
   fetchTrailerID(query) {
-    return this.http.get<Youtube>(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${query}&key=AIzaSyDxo3-dq7wg4YgdT-29bvkSt9coYd0uobE`
+    return this.http.get<Youtube>(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${query}&key=AIzaSyD8MgwHFcZm2n24zSKi0j23oiog-mLVtH0`
     ).pipe(
       map((result) => {
         return result.items[0].id.videoId;
@@ -94,9 +94,9 @@ export class DataService {
     this.player = new window['YT'].Player('player', {
       // height: "460",
       // width: "100%",
-      // videoId: YTMovieTrailerID,
+      videoId: YTMovieTrailerID,
       playerVars: {
-        autoplay: 0,
+        // autoplay: 0,
         modestbranding: 1,
         controls: 1,
         disablekb: 1,
@@ -107,16 +107,16 @@ export class DataService {
       },
       events: {
         // onError: this.onPlayerError.bind(this),
-        onReady: this.onPlayerReady.bind(this),
+        // onReady: this.onPlayerReady.bind(this),
       },
     });
 
     this.player2 = new window['YT'].Player('player2', {
       // height: "460",
       // width: "100%",
-      // videoId: YTMovieTrailerID,
+      videoId: YTMovieTrailerID,
       playerVars: {
-        autoplay: 0,
+        // autoplay: 0,
         modestbranding: 1,
         controls: 1,
         disablekb: 1,
@@ -127,16 +127,16 @@ export class DataService {
       },
       events: {
         // onError: this.onPlayerError.bind(this),
-        onReady: this.onPlayer2Ready.bind(this),
+        // onReady: this.onPlayer2Ready.bind(this),
       },
     });
 
     this.player3 = new window['YT'].Player('player3', {
       // height: "460",
       // width: "100%",
-      // videoId: YTMovieTrailerID,
+      videoId: YTMovieTrailerID,
       playerVars: {
-        autoplay: 0,
+        // autoplay: 0,
         modestbranding: 1,
         controls: 1,
         disablekb: 1,
@@ -147,22 +147,22 @@ export class DataService {
       },
       events: {
         // onError: this.onPlayerError.bind(this),
-        onReady: this.onPlayer3Ready.bind(this),
+        // onReady: this.onPlayer3Ready.bind(this),
       },
     });
   }
 
-  onPlayerReady(event) {
-    event.target.playVideo();
-  }
+  // onPlayerReady(event) {
+  //   event.target.playVideo();
+  // }
 
-  onPlayer2Ready(event) {
-    event.target.playVideo();
-  }
+  // onPlayer2Ready(event) {
+  //   event.target.playVideo();
+  // }
 
-  onPlayer3Ready(event) {
-    event.target.playVideo();
-  }
+  // onPlayer3Ready(event) {
+  //   event.target.playVideo();
+  // }
 
   // onPlayerError(event) {
   //   switch (event.data) {

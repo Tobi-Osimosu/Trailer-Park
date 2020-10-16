@@ -58,6 +58,10 @@ section {
   margin-bottom: 50px;
 }
 
+.swiper-slide {
+  transition: all 0.3s ease-in-out !important;
+}
+
 // LOADER
 .lds-hourglass {
   display: flex;

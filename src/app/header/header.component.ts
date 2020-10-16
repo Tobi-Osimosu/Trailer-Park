@@ -45,7 +45,6 @@ export class HeaderComponent implements OnInit {
         document.querySelector('header iframe').setAttribute('src', YTUrl);
       } else {
         this.dataService.initYoutubePlayer(this.YTMovieTrailerID);
-        this.dataService.player3.videoId = this.YTMovieTrailerID;
       }
     });
   }
@@ -99,8 +98,6 @@ export class HeaderComponent implements OnInit {
   // }
 
   onModalClose() {
-    this.dataService.player.stopVideo();
-    this.dataService.player2.stopVideo();
     this.dataService.player3.stopVideo();
   }
 }

@@ -3,7 +3,6 @@ import { DataService } from './../services/data.service';
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { Swiper } from 'swiper';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-upcoming-movies',
@@ -14,9 +13,6 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
   public config: SwiperConfigInterface = {};
   upcomingMovies = null;
   selected_movie: Movie;
-
-  // public YT: any;
-  // public player2: any;
   public YTMovieTrailerID: string;
 
   constructor(
@@ -81,7 +77,7 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
 
     setTimeout(() => {
       mySwiper.update();
-    }, 500);
+    }, 1000);
   }
 
   playTrailer(movie_title) {
@@ -96,7 +92,6 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
           .setAttribute('src', YTUrl);
       } else {
         this.dataService.initYoutubePlayer(this.YTMovieTrailerID);
-        this.dataService.player2.videoId = this.YTMovieTrailerID;
       }
     });
   }
@@ -150,8 +145,6 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
   // }
 
   onModalClose() {
-    this.dataService.player.stopVideo();
     this.dataService.player2.stopVideo();
-    this.dataService.player3.stopVideo();
   }
 }
