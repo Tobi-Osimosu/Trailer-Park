@@ -49,6 +49,10 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
         },
       },
     };
+
+    setTimeout(() => {
+      this.reInitSwiper();
+    }, 500);
   }
 
   slidePrev() {
@@ -75,9 +79,11 @@ export class UpcomingMoviesComponent implements OnInit, AfterViewInit {
       '#upcoming-movies .swiper-container'
     ).swiper;
 
+    // mySwiper.update();
+
     setTimeout(() => {
       mySwiper.update();
-    }, 1000);
+    }, 500);
   }
 
   playTrailer(movie_title) {

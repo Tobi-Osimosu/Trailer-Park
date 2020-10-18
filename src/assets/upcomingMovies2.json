@@ -1,0 +1,108 @@
+{
+  "movie_results": [
+    {
+      "title": "Splinter Cell",
+      "year": "2017",
+      "imdb_id": "tt0439829"
+    },
+    {
+      "title": "Untitled The Adventures of Tintin Sequel",
+      "year": "2022",
+      "imdb_id": "tt1037226"
+    },
+    {
+      "title": "Barbie",
+      "year": "2020",
+      "imdb_id": "tt1517268"
+    },
+    {
+      "title": "The Crooked Man",
+      "year": "2022",
+      "imdb_id": "tt7018434"
+    },
+    {
+      "title": "Shackleton",
+      "year": "2021",
+      "imdb_id": "tt6173528"
+    },
+    {
+      "title": "Bad Blood",
+      "year": "2022",
+      "imdb_id": "tt5795144"
+    },
+    {
+      "title": "Wraiths of the Broken Land",
+      "year": "0",
+      "imdb_id": "tt5711258"
+    },
+    {
+      "title": "Fast & Furious 10",
+      "year": "2022",
+      "imdb_id": "tt5433140"
+    },
+    {
+      "title": "Chengazhi Nambiar",
+      "year": "2021",
+      "imdb_id": "tt6185462"
+    },
+    {
+      "title": "Nightmare Alley",
+      "year": "0",
+      "imdb_id": "tt7740496"
+    },
+    {
+      "title": "Wicked",
+      "year": "2021",
+      "imdb_id": "tt1262426"
+    },
+    {
+      "title": "Sing 2",
+      "year": "2021",
+      "imdb_id": "tt6467266"
+    },
+    {
+      "title": "Sherlock Holmes 3",
+      "year": "2021",
+      "imdb_id": "tt2094116"
+    },
+    {
+      "title": "Spider-Man 3",
+      "year": "2021",
+      "imdb_id": "tt10872600"
+    },
+    {
+      "title": "The Batman",
+      "year": "2021",
+      "imdb_id": "tt1877830"
+    },
+    {
+      "title": "The Bad Guys",
+      "year": "2021",
+      "imdb_id": "tt8115900"
+    },
+    {
+      "title": "Conundrum: Secrets Among Friends",
+      "year": "2021",
+      "imdb_id": "tt7251692"
+    },
+    {
+      "title": "The Suicide Squad",
+      "year": "2021",
+      "imdb_id": "tt6334354"
+    },
+    {
+      "title": "Dragon's Lair: The Movie",
+      "year": "2021",
+      "imdb_id": "tt5248776"
+    },
+    {
+      "title": "Jurassic World: Dominion",
+      "year": "2021",
+      "imdb_id": "tt8041270"
+    }
+  ],
+  "results": 20,
+  "Total_results": "107556",
+  "status": "OK",
+  "status_message": "Query was successful"
+}

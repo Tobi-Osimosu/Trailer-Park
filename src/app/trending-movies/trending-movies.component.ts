@@ -49,6 +49,10 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
         },
       },
     };
+
+    setTimeout(() => {
+      this.reInitSwiper();
+    }, 500);
   }
 
   slidePrev() {
@@ -75,9 +79,11 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
       '#trending-movies .swiper-container'
     ).swiper;
 
+    // mySwiper.update();
+
     setTimeout(() => {
       mySwiper.update();
-    }, 1000);
+    }, 500);
   }
 
   playTrailer(movie_title) {
