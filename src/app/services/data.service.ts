@@ -20,7 +20,7 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   fetchTrendingMovies() {
-    return this.http.get(`/assets/trendingMovies.json`).pipe(
+    return this.http.get(`/assets/trendingMovies2.json`).pipe(
       map((response) => {
         this.trendingMoviesData = response;
         this.trendingMoviesData.movie_results.forEach((movieResults) => {
@@ -40,7 +40,7 @@ export class DataService {
   }
 
   fetchUpcomingMovies() {
-    return this.http.get(`/assets/upcomingMovies.json`).pipe(
+    return this.http.get(`/assets/upcomingMovies2.json`).pipe(
       map((response) => {
         this.upcomingMoviesData = response;
         this.upcomingMoviesData.movie_results.forEach((movieResults) => {

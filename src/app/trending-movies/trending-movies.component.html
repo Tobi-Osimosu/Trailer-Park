@@ -1,6 +1,6 @@
 <div class="" *ngIf="trendingMovies !== null">
     <section id="trending-movies" (window:load)="reInitSwiper()">
-    <!-- <section id="trending-movies"> -->
+        <!-- <section id="trending-movies"> -->
         <div class="container">
             <h3 class="header">Trending Movies</h3>
             <div class="swiper-container" [swiper]="config">
@@ -45,8 +45,8 @@
                                     <img loading="lazy" *ngIf="selected_movie.Poster === 'N/A' "
                                         src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/9556d16312333.5691dd2255721.jpg"
                                         alt="Poster Not Found" class="poster-img">
-                                    <img loading="lazy" *ngIf="selected_movie.Poster !== 'N/A'" src="{{ selected_movie.Poster }}"
-                                        alt="Poster Image" class="poster-img">
+                                    <img loading="lazy" *ngIf="selected_movie.Poster !== 'N/A'"
+                                        src="{{ selected_movie.Poster }}" alt="Poster Image" class="poster-img">
                                 </div>
                                 <div class="col-12 col-lg-6 p-5">
                                     <p class="modal-title">{{ selected_movie.Title }}</p>
@@ -58,7 +58,8 @@
                                     <p class="modal-desc">{{ selected_movie.Plot }}</p>
 
                                     <button type="button" class="modal-btn" data-toggle="modal"
-                                        (click)="playTrailer(selected_movie.Title)" data-target="#trendingMovieTrailerModal">
+                                        (click)="playTrailer(selected_movie.Title, selected_movie.Year)"
+                                        data-target="#trendingMovieTrailerModal">
                                         <i class="material-icons mr-2">play_arrow</i>
                                         WATCH TRAILER
                                     </button>
@@ -70,7 +71,8 @@
 
                 <!-- Trailer Modal -->
                 <div class="modal fade" id="trendingMovieTrailerModal" tabindex="-1" role="dialog"
-                    aria-labelledby="trendingMovieTrailerModalTitle" aria-hidden="true">
+                    aria-labelledby="trendingMovieTrailerModalTitle" aria-hidden="true" data-backdrop="static"
+                    data-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -79,7 +81,8 @@
                                     <i class="material-icons">close</i>
                                 </button>
                             </div>
-                            <div id="YTPlayer-container" class="modal-body d-flex justify-content-center align-items-center"
+                            <div id="YTPlayer-container"
+                                class="modal-body d-flex justify-content-center align-items-center"
                                 style="height: 568px; width: 100%;">
                                 <div id="player"></div>
                             </div>

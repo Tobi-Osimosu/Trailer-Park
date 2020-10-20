@@ -86,8 +86,8 @@ export class TrendingMoviesComponent implements OnInit, AfterViewInit {
     }, 500);
   }
 
-  playTrailer(movie_title) {
-    let query: string = `${movie_title} Trailer`;
+  playTrailer(movie_title, movie_year) {
+    let query: string = `${movie_title} ${movie_year} Trailer`;
     this.dataService.fetchTrailerID(query).subscribe((res) => {
       this.YTMovieTrailerID = res;
 

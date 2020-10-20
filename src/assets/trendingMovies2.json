@@ -1,0 +1,108 @@
+{
+  "movie_results": [
+    {
+      "title": "The Wolf of Snow Hollow",
+      "year": "2020",
+      "imdb_id": "tt11140488"
+    },
+    {
+      "title": "Books of Blood",
+      "year": "2020",
+      "imdb_id": "tt11242218"
+    },
+    {
+      "title": "The Curse of Audrey Earnshaw",
+      "year": "2020",
+      "imdb_id": "tt7157146"
+    },
+    {
+      "title": "The Lie",
+      "year": "2018",
+      "imdb_id": "tt7945440"
+    },
+    {
+      "title": "On Halloween",
+      "year": "2019",
+      "imdb_id": "tt6580050"
+    },
+    {
+      "title": "Tales from the Hood 3",
+      "year": "2020",
+      "imdb_id": "tt11453082"
+    },
+    {
+      "title": "Batman: Death in the Family",
+      "year": "2020",
+      "imdb_id": "tt12794046"
+    },
+    {
+      "title": "They Live Inside Us",
+      "year": "2020",
+      "imdb_id": "tt8327630"
+    },
+    {
+      "title": "Black Box",
+      "year": "2020",
+      "imdb_id": "tt12298506"
+    },
+    {
+      "title": "Tremors: Shrieker Island",
+      "year": "2020",
+      "imdb_id": "tt8322060"
+    },
+    {
+      "title": "The Witches",
+      "year": "2020",
+      "imdb_id": "tt0805647"
+    },
+    {
+      "title": "The Binding",
+      "year": "2020",
+      "imdb_id": "tt10914452"
+    },
+    {
+      "title": "Dick Johnson Is Dead",
+      "year": "2020",
+      "imdb_id": "tt11394180"
+    },
+    {
+      "title": "Seized",
+      "year": "2020",
+      "imdb_id": "tt7221772"
+    },
+    {
+      "title": "You've Got This",
+      "year": "2020",
+      "imdb_id": "tt13118012"
+    },
+    {
+      "title": "Save Yourselves!",
+      "year": "2020",
+      "imdb_id": "tt7873348"
+    },
+    {
+      "title": "Serious Men",
+      "year": "2020",
+      "imdb_id": "tt10230414"
+    },
+    {
+      "title": "Òlòtūré",
+      "year": "2019",
+      "imdb_id": "tt9725830"
+    },
+    {
+      "title": "Vampires vs. the Bronx",
+      "year": "2020",
+      "imdb_id": "tt8976576"
+    },
+    {
+      "title": "The Craft: Legacy",
+      "year": "2020",
+      "imdb_id": "tt4685762"
+    }
+  ],
+  "results": 20,
+  "Total_results": "378",
+  "status": "OK",
+  "status_message": "Query was successful"
+}

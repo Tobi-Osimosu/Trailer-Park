@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   search() {
-    this.searchResult = null;
+    this.searchResult = "";
     if (this.form.value.title !== null) {
       this.dataService
         .search(
@@ -35,8 +35,8 @@ export class HeaderComponent implements OnInit {
     this.form.reset();
   }
 
-  playTrailer(movie_title) {
-    let query: string = `${movie_title} Trailer`;
+  playTrailer(movie_title, movie_year) {
+    let query: string = `${movie_title} ${movie_year} Trailer`;
     this.dataService.fetchTrailerID(query).subscribe((res) => {
       this.YTMovieTrailerID = res;
 

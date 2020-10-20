@@ -54,8 +54,7 @@
                                     <p class="modal-desc">{{ searchResult.Plot }}</p>
 
                                     <button class="modal-btn" class="modal-btn" data-toggle="modal"
-                                        (click)="playTrailer(searchResult.Title)"
-                                        data-target="#searchTrailerModal">
+                                        (click)="playTrailer(searchResult.Title, searchResult.Year)" data-target="#searchTrailerModal">
                                         <i class="material-icons mr-2">play_arrow</i>
                                         WATCH TRAILER
                                     </button>
@@ -67,7 +66,8 @@
 
                 <!-- Trailer Modal -->
                 <div class="modal fade" id="searchTrailerModal" tabindex="-1" role="dialog"
-                    aria-labelledby="searchTrailerModalTitle" aria-hidden="true">
+                    aria-labelledby="searchTrailerModalTitle" aria-hidden="true" data-backdrop="static"
+                    data-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
